@@ -60,12 +60,7 @@ const groups = [
   #water {
     top: 70%;
     height: 30%;
-    background: radial-gradient(
-      circle at 50%,
-      var(--gold-alpha),
-      var(--pink-alpha),
-      var(--dark-alpha)
-    );
+    background: radial-gradient(circle at 50%, var(--gold-alpha), var(--pink-alpha), var(--dark-alpha));
     transform: scaleY(-1);
     display: flex;
     align-items: flex-end;
@@ -75,12 +70,7 @@ const groups = [
   .water-filter {
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      circle at 50%,
-      var(--gold-alpha),
-      var(--pink-alpha),
-      var(--dark-alpha)
-    );
+    background: radial-gradient(circle at 50%, var(--gold-alpha), var(--pink-alpha), var(--dark-alpha));
     z-index: 2;
   }
 
@@ -117,22 +107,7 @@ const groups = [
     display: block;
   }
 
-  /* Responsive — hide building groups progressively */
-  @media (max-width: 1200px) {
-    #welcome-section {
-      height: 70vh;
-    }
-  }
-
-  @media (max-width: 900px) {
-    #welcome-section {
-      height: 60vh;
-    }
-  }
-
-  @media (max-width: 750px) {
-    #welcome-section {
-      height: 50vh;
-    }
-  }
+  @media (max-width: 1200px) { #welcome-section { height: 70vh; } }
+  @media (max-width: 900px)  { #welcome-section { height: 60vh; } }
+  @media (max-width: 750px)  { #welcome-section { height: 50vh; } }
 </style>

@@ -3,14 +3,22 @@ import ProjectCard from "./ProjectCard.astro";
 import projects from "../data/projects.json";
 ---
 
-<section
-  id="projects-section"
-  class="min-h-screen flex items-center justify-center py-[8vh] px-[4vw]"
->
-  <div
-    class="grid w-full max-w-[1200px]"
-    style="grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: clamp(40px, 6vw, 80px);"
-  >
+<!--
+  Tailwind : centrage, padding, min-height — layout simple et statique
+  CSS pur  : grid-template-columns avec minmax + clamp pour le gap,
+             non exprimables proprement avec les classes Tailwind standard
+-->
+<section id="projects-section" class="min-h-screen flex items-center justify-center py-[8vh] px-[4vw]">
+  <div class="projects-grid w-full max-w-[1200px]">
     {projects.map((p, i) => <ProjectCard {...p} index={i} />)}
   </div>
 </section>
+
+<style>
+  /* grid-template-columns avec minmax dynamique → CSS pur */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: clamp(40px, 6vw, 80px);
+  }
+</style>

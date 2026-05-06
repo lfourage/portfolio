@@ -1,36 +1,29 @@
 @import "tailwindcss";
 
+/* ─── Variables ─────────────────────────────────────────── */
 :root {
-  --violet: hsl(271, 76%, 53%);
-  --violet-darker: hsl(271, 76%, 20%);
-  --pink: hsl(328, 100%, 54%);
-  --pink-alpha: hsla(328, 100%, 54%, 30%);
-  --azure: hsl(180, 100%, 50%);
-  --dark: hsl(0, 0%, 11%);
-  --dark-alpha: hsla(0, 0%, 11%, 80%);
-  --gold: hsl(51, 100%, 50%);
-  --gold-alpha: hsla(51, 100%, 50%, 80%);
+  --violet:       hsl(271, 76%, 53%);
+  --violet-darker:hsl(271, 76%, 20%);
+  --pink:         hsl(328, 100%, 54%);
+  --pink-alpha:   hsla(328, 100%, 54%, 30%);
+  --azure:        hsl(180, 100%, 50%);
+  --dark:         hsl(0, 0%, 11%);
+  --dark-alpha:   hsla(0, 0%, 11%, 80%);
+  --gold:         hsl(51, 100%, 50%);
+  --gold-alpha:   hsla(51, 100%, 50%, 80%);
 }
 
-@font-face {
-  font-family: "hotline";
-  src: url("/fonts/FIGHTT3_.ttf");
-}
-@font-face {
-  font-family: "vcr";
-  src: url("/fonts/VCR_OSD_MONO_1.001.ttf");
-}
-@font-face {
-  font-family: "bellerose";
-  src: url("/fonts/Bellerose.ttf");
-}
+/* ─── Fonts ─────────────────────────────────────────────── */
+@font-face { font-family: "hotline";  src: url("/fonts/FIGHTT3_.ttf"); }
+@font-face { font-family: "vcr";      src: url("/fonts/VCR_OSD_MONO_1.001.ttf"); }
+@font-face { font-family: "bellerose";src: url("/fonts/Bellerose.ttf"); }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ─── Reset ─────────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+li { list-style: none; }
+a  { text-decoration: none; }
 
+/* ─── Base ──────────────────────────────────────────────── */
 html {
   font-family: "hotline";
   color: var(--azure);
@@ -43,84 +36,44 @@ section {
   scroll-margin-top: 50px;
 }
 
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
+/* ─── Keyframes ─────────────────────────────────────────── */
 
 @keyframes welcome {
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1);
-    color: var(--gold);
-  }
-  75% {
-    transform: scale(1.1);
-  }
-  100% {
-    color: var(--azure);
-  }
+  25%  { transform: scale(1.1); }
+  50%  { transform: scale(1); color: var(--gold); }
+  75%  { transform: scale(1.1); }
+  100% { color: var(--azure); }
 }
 
 @keyframes water {
-  0% {
-    left: 0;
-    transform: skewX(0deg);
-  }
-  25% {
-    left: -1%;
-    transform: skewX(10deg);
-  }
-  50% {
-    left: 0;
-    transform: skewX(0deg);
-  }
-  75% {
-    left: -1%;
-    transform: skewX(10deg);
-  }
-  100% {
-    left: 0;
-    transform: skewX(0deg);
-  }
+  0%   { left: 0;   transform: skewX(0deg); }
+  25%  { left: -1%; transform: skewX(10deg); }
+  50%  { left: 0;   transform: skewX(0deg); }
+  75%  { left: -1%; transform: skewX(10deg); }
+  100% { left: 0;   transform: skewX(0deg); }
 }
 
 @keyframes glow-pulse {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 14px var(--violet))
-      drop-shadow(0 0 28px var(--pink));
+  0%, 100% {
+    filter: drop-shadow(0 0 14px var(--violet)) drop-shadow(0 0 28px var(--pink));
   }
   50% {
-    filter: drop-shadow(0 0 22px var(--violet))
-      drop-shadow(0 0 45px var(--pink));
+    filter: drop-shadow(0 0 22px var(--violet)) drop-shadow(0 0 45px var(--pink));
   }
 }
 
-.font-vcr {
-  font-family: "vcr";
-}
-.font-hotline {
-  font-family: "hotline";
-}
-.font-belle {
-  font-family: "bellerose";
-}
+/* ─── Global Utility ───────────────────────────────── */
 
-.text-gold {
-  color: var(--gold);
-  text-shadow: 1px 1px 4px var(--dark);
-}
+.font-vcr     { font-family: "vcr"; }
+.font-hotline { font-family: "hotline"; }
+.font-belle   { font-family: "bellerose"; }
 
 .tag {
   font-family: "vcr";
-  font-size: 0.65rem;
-  padding: 2px 8px;
+  font-size: 0.6rem;
+  padding: 2px 6px;
   background: var(--violet);
   color: var(--azure);
   border: 1px solid var(--pink);
+  white-space: nowrap;
 }

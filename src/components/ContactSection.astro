@@ -1,44 +1,46 @@
 ---
 const links = [
   { id: "profile-link", href: "https://github.com/lfourage", label: "Github" },
-  { id: "x-link", href: "https://x.com/SlyBeaver5", label: "X" },
-  { id: "email-link", href: "mailto:ludogriph@gmqil.com", label: "Email" },
-  { id: "phone-link", href: "tel:0641843026", label: "Phone" },
+  { id: "x-link",       href: "https://x.com/SlyBeaver5",   label: "X" },
+  { id: "email-link",   href: "mailto:TON_EMAIL",            label: "Email" },
+  { id: "phone-link",   href: "tel:TON_NUMERO",              label: "Phone" },
 ];
 ---
 
 <div class="flex justify-center w-full my-[10vh]">
-  <section
-    id="contact-section"
-    class="flex justify-center items-center mx-auto my-[10vh] px-4"
-    style="width: clamp(300px, 40vw, 600px); height: clamp(120px, 20vh, 200px); background-color: var(--pink)"
-  >
-    <div
-      class="flex flex-col items-center gap-3 py-3 w-[70%] border-y-[3px] border-(--gold)"
-    >
-      <h1
-        class="font-hotline text-(--gold)"
-        style="font-size: clamp(1rem, 2vw, 1.5rem)"
-      >
-        Contact:
-      </h1>
+  <section id="contact-section" class="contact-box flex justify-center items-center px-4">
+    <div class="flex flex-col items-center gap-3 py-3 w-[70%] border-y-[3px] border-(--gold)">
+      <h2 class="font-hotline text-(--gold) contact-title">Contact:</h2>
       <ul class="flex flex-wrap justify-center gap-[clamp(0.8rem,2vw,1.5rem)]">
-        {
-          links.map((l) => (
-            <li>
-              <a
-                id={l.id}
-                href={l.href}
-                target="_blank"
-                class="font-hotline text-(--gold) hover:text-(--dark) transition-colors"
-                style="font-size: clamp(0.9rem, 1.5vw, 1.2rem)"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))
-        }
+        {links.map((l) => (
+          <li>
+            <a
+              id={l.id}
+              href={l.href}
+              target="_blank"
+              class="font-hotline text-(--gold) contact-link hover:text-(--dark) transition-colors"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
 </div>
+
+<style>
+  .contact-box {
+    width: clamp(300px, 40vw, 600px);
+    height: clamp(120px, 20vh, 200px);
+    background-color: var(--pink);
+  }
+
+  .contact-title {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .contact-link {
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  }
+</style>

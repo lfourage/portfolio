@@ -1,6 +1,5 @@
 ---
-const { name, description, image, liveUrl, githubUrl, tags, index } =
-  Astro.props;
+const { name, description, image, liveUrl, githubUrl, tags, index } = Astro.props;
 const splashClass = `splash-${(index % 4) + 1}`;
 
 const langLogos: Record<string, string> = {
@@ -16,17 +15,25 @@ const primaryLogo = langLogos[tags[0]] ?? null;
 ---
 
 <div class="card-outer cursor-pointer">
+
+  <!-- Zone clippée : placeholder + overlay hover -->
   <div class="glow-wrapper">
     <div class={`project-card-wrapper ${splashClass}`}>
       <div class="card-inner">
 
+        <!-- Logo du langage en fond placeholder -->
         <div class="card-placeholder">
           {primaryLogo && <span set:html={primaryLogo} />}
         </div>
 
+        <!-- Décommente quand tu as de vraies screenshots :       -->
+        <!-- <img src={image} alt={`Screenshot of ${name}`}       -->
+        <!--      class="card-img" />                             -->
+
+        <!-- Overlay au hover -->
         <div class="card-overlay">
           <p class="font-belle card-desc">{description}</p>
-          <div class="card-links">
+          <div class="flex flex-wrap gap-3 justify-center">
             {liveUrl && (
               <a href={liveUrl} target="_blank" class="card-link font-vcr">Live ↗</a>
             )}
@@ -40,10 +47,11 @@ const primaryLogo = langLogos[tags[0]] ?? null;
 
   <div class="card-footer">
     <p class="font-vcr card-title">{name}</p>
-    <div class="tags-row">
+    <div class="flex flex-wrap gap-1">
       {tags.map((tag: string) => <span class="tag">{tag}</span>)}
     </div>
   </div>
+
 </div>
 
 <style>
@@ -55,10 +63,10 @@ const primaryLogo = langLogos[tags[0]] ?? null;
   }
 
   .glow-wrapper {
-    transition: filter 0.4s ease;
+    position: relative;
     width: 100%;
     aspect-ratio: 4/3;
-    position: relative;
+    transition: filter 0.4s ease;
   }
 
   .card-outer:hover .glow-wrapper {
@@ -93,7 +101,6 @@ const primaryLogo = langLogos[tags[0]] ?? null;
     background: var(--dark);
   }
 
-  /* Placeholder : logo centré sur fond dégradé synthwave */
   .card-placeholder {
     position: absolute;
     inset: 0;
@@ -134,7 +141,6 @@ const primaryLogo = langLogos[tags[0]] ?? null;
     filter: brightness(0.3);
   }
 
-  /* Overlay hover */
   .card-overlay {
     position: absolute;
     inset: 0;
@@ -161,13 +167,6 @@ const primaryLogo = langLogos[tags[0]] ?? null;
     line-height: 1.5;
   }
 
-  .card-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
   .card-link {
     padding: 4px 14px;
     border: 2px solid var(--gold);
@@ -181,7 +180,6 @@ const primaryLogo = langLogos[tags[0]] ?? null;
     color: var(--dark);
   }
 
-  /* Footer hors clip */
   .card-footer {
     padding: 0 4px;
   }
@@ -194,21 +192,5 @@ const primaryLogo = langLogos[tags[0]] ?? null;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .tags-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .tag {
-    font-family: "vcr";
-    font-size: 0.6rem;
-    padding: 2px 6px;
-    background: var(--violet);
-    color: var(--azure);
-    border: 1px solid var(--pink);
-    white-space: nowrap;
   }
 </style>
